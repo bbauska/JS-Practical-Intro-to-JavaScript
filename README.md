@@ -88,6 +88,7 @@ the terminating space:
 2 1234.567
 ```
 
+<!-- page 29 -->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 ## The boolean type
 Let’s see some booleans values. Booleans are either true or false.
@@ -296,7 +297,145 @@ after the decimal point.
 
 Let’s see an example for rounding:
 
+<!-- page 18 -->
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+## Data types in JavaScript
 
+Most programming languages help you create values that symbolize a number, a character in a text,
+or a longer text. You can also symbolize the concept of true and false values using booleans. You can
+also create values that symbolize the absence of a value. These values are all called primitive data
+types.
+
+The name primitive does not come from a negative place. These data types are neither stupid, nor
+inferior to any other data types we use in JavaScript. The name primitive comes from their simplicity.
+The other data types you will learn later are composite, and they consist of many primitive data types.
+
+Why are data types important for us?
+
+For instance, whenever you check your emails, go on Facebook, or check your bank account, you
+always see data: your name, your messages, the current date and time, and in the settings, you can
+also see other features of your account.
+
+Data have types. We tend to use an integer (whole number, without a fractional part) than text. A
+checkbox can have two possible values: true or false. These data types are also unique. For each data
+type, different operations apply, and their possible values are also different.
+
+In JavaScript, there are six primitive types:
+
+<!-- page 19 -->
+
+	• boolean (true or false)
+	• number (including integers like 1, -2, and floating point numbers like 1.1, 2e-3)
+	• string ( '' or "", 'ES6 in Practice' or "ES6 in Practice" )
+	• null type (denoted by null)
+	• undefined (denoted by undefined)
+	• Symbol (don’t worry about them yet)
+
+Floating point numbers typically contain a decimal separator character, most often a dot. The
+precision of floating point numbers is limited, because there are a limited number of bits available.
+
+We will soon learn more about anomalies arising from restrictions on floating point precision.
+
+Operations can be performed on data of given types. Operations are denoted by an operator
+symbolizing the operation. Examples: +, -, *, /. Operators perform operations on data that are called
+the operands of the operation.
+
+For instance, in the 2 * 3 operation, * is the operator symbolizing multiplication. Multiplication has
+two operands: 2 and 3.
+
+Some important operators are:
+
+	• + stands for addition. Example: 2 + 3 is 5.
+	• - stands for subtraction. Example: 2 - 3 is -1.
+	• If there is no operand on the left of + or -, then + or - becomes a sign. Examples: +3 or -2.
+	• * stands for multiplication. Example: 3 * 2 is 6.
+	• / stands for division. Example: 3 / 2 is 1.5.
+	• % stands for the modulus operation, which is the remainder of a number divided by another
+	number using the rules of integer division. Example: 5 % 2 is 1, because 5 divided by 2 is 2,
+	and the remainder is 1. In other words, the mod 2 remainder of 5 is 1.
+	• ** is the power operator. Example: 2 ** 3 (two to the power of three) is 2 * 2 * 2, which is
+	8.
+
+At the bottom of the console in CodePen²², there is a line with a > sign. This is where you can enter
+JavaScript expressions. Let’s try some. Enter the expression you see after the >
+sign. Then press enter. You can see the result appear on the next line.
+
+<!-- page 20 -->
+
+```
+1 > 5
+2 5
+3
+4 > 5 + 2
+5 7
+6
+7 > 7 % 5
+8 2
+9
+10 > 5 ** 2
+11 25
+```
+
+Operations can be grouped together using parentheses. Parentheses override the priority of executing
+operations. For instance, in mathematics, multiplication has higher priority than addition. This
+means, 1 + 2 * 3 is the same as 1 + (2 * 3).
+Let’s see an example for using parentheses:
+
+```
+1 > 5 * ( 1 + 2 * ( 3 + 4 ) )
+2 // 5 * ( 1 + 2 * 7 )
+3 // 5 * ( 1 + 14 )
+4 // 5 * 15
+5 75
+```
+
+Opposed to mathematics, we do not use brackets or braces to group operations. Parentheses can be
+used within parentheses. It is also important to construct valid expressions with parentheses, which
+means that each closing parenthesis should belong to a preceding opening parenthesis.
+Similarly to mathematics, different operators have different priority (also referred to as precedence).
+When an operation has to be performed before another operation, we say that this operator:
+
+	• has higher priority,
+	• binds stronger.
+
+Most operators have either one or two operands. This means the operator transforms either one or
+two values to a new value. Examples:
+
+	• The operands of 5 + 2 are 5 and 2. The + operator transforms these operands to 7.
+	• The operand of -(2) is (2). I put parentheses around the 2 to emphasize that - is an operator
+	and not a symbol to describe an integer.
+
+Operators bind their operands. We have already seen that some operators bind stronger than others.
+For instance, multiplication binds stronger than addition:
+
+<!-- page 21 -->
+
+```
+1 5 * 2 + 3 ----> 10 + 3 ----> 13
+```
+
+We have also seen that the priority of operators can be overridden using parentheses:
+
+```
+1 5 * (2 + 3) ----> 5 * 5 ----> 25
+```
+
+The basic arithmetic operations (+, -, *, /, **) and the two signs (+, -) have the following priority:
+
+	1. Signs: + or - can stand in front of a number. This sign is evaluated first.
+	2. Power: ** binds the strongest out of the operators with two operands.
+	3. Multiplication and division: * and /
+	4. Finally, addition and subtraction: + and -
+
+If you use more complex operations in JavaScript and you are not sure about their priority, use
+parentheses. Relying too much on the evaluation priority of operations reduces the readability of
+your code, which means others may have a hard time cooperating with you if you tend to give them
+riddles.
+
+The modulus operation was not placed in the above priority order, because most of the time, you
+won’t need it in a complex expression. In the unlikely case you used it together with other operators,
+use parentheses. The % operator binds just as strongly as multiplication and division does. However,
+when using % in a complex expression, parentheses increase the readability of your code.
 
 <!-- page 22 -->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -490,6 +629,7 @@ Examples:
 All conversions work. The first relies on giving a sign to a numeric string which converts it to a
 number. Then 1+2 becomes 3. The second type cast is more explicit: you use Number to wrap a string
 and convert it to a number.
+
 I recommend using the third option: Number.parseInt with a radix. parseInt converts a string into
 a number. The second argument of parseInt is optional: it describes the base in which we represent
 the number. Most of the time, we use base 10 values.
@@ -571,6 +711,7 @@ An arbitrary value can be converted to boolean using the Boolean function:
 <!-- page 30 -->
 The !operator not only negates a value, but also converts it to a boolean. For instance, the negation
 of a string can be described as follows:
+
 	• the empty string ("") is evaluated as false by default in a boolean expression. Negating this
 	value yields true.
 	• An arbitrary at least one character long string is evaluated as true in a boolean expression.
@@ -710,6 +851,53 @@ The negation of === is !==.
 4 > 5 !== '5'
 5 true
 ```
+
+<!-- page 34 -->
+So far, all operators have been unary or binary meaning that they bind one or two values:
+
+	• the expression 5 + 2 has the operands 5 and 2
+	• the expression +'2' has the operand '2'
+
+Recall that operators bind their operands. Some operators are said to bind stronger than others. For
+instance, multiplication binds stronger than addition:
+
+```
+1 5 * 2 + 2 ----> 10 + 2 ----> 12
+```
+
+Also recall that is possible to override the precedence of the operators with parentheses:
+
+```
+1 5 * (2 + 2) ----> 5 * 4 ----> 20
+```
+
+There is one ternary operator in JavaScript.
+
+The value of a ? b : c is:
+
+	• b if a is truthy
+	• c if a is falsy
+
+It is important to note the difference between 2 == true and !!2.
+
+```
+1 > 2 == true // true is converted to 1
+2 false
+3
+4 > !!2 // 2 is a truthy value
+5 true
+6
+7 > 2 == true ? 'the condition is true' : 'the condition is false'
+8 "the condition is false"
+9
+10 > !!2 ? 'the condition is true' : 'the condition is false'
+11 "the condition is true"
+```
+
+I have seen the nastiest bug in my life in a code, where a condition was in a format num == true.
+As I never felt like learning boring definitions, my lack of knowledge shot me in the foot, because I
+assumed the opposite conversion in 2 == true. I can save you some headache by highlighting this
+common misconception. In 2 == true, true is converted to 1, and not the other way around.
 
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <!-- page 35 -->
