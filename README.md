@@ -732,14 +732,44 @@ Regarding block scope, blocks can be created anywhere in your code. Blocks are c
 
 ```
 1 {
-2 // This is a block
+2   // This is a block
 3 }
 ```
 
+Variables created using let and const are only visible inside the block where they are created:
 
+```
+1 {
+2   let box = 5;
+3   console.log( box );
+4 }
+```
+
+The above code displays the value of box.
+
+```
+1 {
+2   let innerBox = 6;
+3 }
+4 console.log( innerBox );
+```
+
+In the above code segment, we get a ReferenceError as soon as we reach the console.log statement:
+
+```
+1 VM124:4 Uncaught ReferenceError: belsoDoboz is not defined
+```
+
+This is because the innerBox is not visible from outside the box.
 
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 ### Global scope
+
+Similarly to other programming languages, JavaScript also has global variables. For instance, you
+have already used the global console variable to log messages. Besides console, open the Google
+Chrome developer tools console to explore other global variables:
+
+
 
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 ### The var keyword and function scope
