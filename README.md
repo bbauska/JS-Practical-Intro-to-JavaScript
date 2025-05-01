@@ -1,5 +1,6 @@
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<h1 id="#js-heading">JavaScript - Practical Intro to Modern JS</h1>
+<!--~~~~~~~~~~~~~~~~~~~~~~ readme.md of JS-Practical-Intro-to-JavaScript ~~~~~~~~~~~~~~~~~~~~~~~-->
+<h1 id="#js-heading">JS - Practical Intro to Modern JavaScript</h1>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <h2 id="#comments">Comments</h2>
 <ul>
@@ -12,12 +13,12 @@
 <h3>6 primitive types</h3>
 
 <ol type="i">
-  <li>boolean (true or false)</li>
-  <li>number (including integers like 1, -2, and floating point numbers like 1.1, 2e-3)</li>
-  <li>string ( '' or "", 'ES6 in Practice' or "ES6 in Practice" )</li>
-  <li>null type (denoted by null)</li>
-  <li>	• undefined (denoted by undefined)</li>
-  <li>Symbol (don’t worry about them yet)</li>
+  <li><mark>boolean</mark> (true or false)</li>
+  <li><mark>number</mark> (including integers like 1, -2, and floating point numbers like 1.1, 2e-3)</li>
+  <li><mark>string</mark> ( '' or "", 'ES6 in Practice' or "ES6 in Practice" )</li>
+  <li><mark>null type</mark> (denoted by null)</li>
+  <li><mark>undefined</mark> (denoted by undefined)</li>
+  <li><mark>Symbol</mark> (don’t worry about them yet)</li>
 </ol>
 
 ### Some important operators are:
