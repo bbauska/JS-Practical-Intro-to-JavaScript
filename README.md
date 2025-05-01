@@ -13,24 +13,27 @@
 <h3>6 primitive types</h3>
 
 <ol type="i">
-  <li><mark>boolean</mark> (true or false)</li>
-  <li><mark>number</mark> (including integers like 1, -2, and floating point numbers like 1.1, 2e-3)</li>
-  <li><mark>string</mark> ( '' or "", 'ES6 in Practice' or "ES6 in Practice" )</li>
-  <li><mark>null type</mark> (denoted by null)</li>
-  <li><mark>undefined</mark> (denoted by undefined)</li>
-  <li><mark>Symbol</mark> (don’t worry about them yet)</li>
+  <li><b><mark>boolean</mark></b>[^1] (true or false)</li>
+  <li><b><mark>number</mark></b> (including integers like 1, -2, and floating point numbers like 1.1, 2e-3)</li>
+  <li><b><mark>string</mark></b> ( '' or "", 'ES6 in Practice' or "ES6 in Practice" )</li>
+  <li><b><mark>null type</mark></b> (denoted by null)</li>
+  <li><b><mark>undefined</mark></b> (denoted by undefined)</li>
+  <li><b><mark>Symbol</mark></b> (don’t worry about them yet)</li>
 </ol>
 
-### Some important operators are:
-	• + stands for addition. Example: 2 + 3 is 5.
-	• - stands for subtraction. Example: 2 - 3 is -1.
-	• If there is no operand on the left of + or -, then + or - becomes a sign. Examples: +3 or -2.
-	• * stands for multiplication. Example: 3 * 2 is 6.
-	• / stands for division. Example: 3 / 2 is 1.5.
-	• % stands for the modulus operation, which is the remainder of a number divided by another
+<h3>Some important operators are:</h3>
+<ul>
+  <li><b><mark>+ (plus)</mark></b>[^1] stands for addition. Example: 2 + 3 is 5.</li>
+  <li><b><mark>- (minus)</mark></b>[^1] stands for subtraction. Example: 2 - 3 is -1.</li>
+  <li><b><mark>* (asterisk)</mark></b> stands for multiplication. Example: 3 * 2 is 6.</li>
+  <li><b><mark>/ (divisor)</mark></b> stands for division. Example: 3 / 2 is 1.5.</li>
+  <li><b><mark>% (percent)</mark></b> stands for the modulus operation, which is the remainder of a number divided by another
 	number using the rules of integer division. Example: 5 % 2 is 1, because 5 divided by 2 is 2,
-	and the remainder is 1. In other words, the mod 2 remainder of 5 is 1.
-	• ** is the power operator. Example: 2 ** 3 (two to the power of three) is 2 * 2 * 2, which is 8.
+	and the remainder is 1. In other words, the mod 2 remainder of 5 is 1.</li>
+  <li><b><mark>**</mark></b> is the power operator. Example: 2 ** 3 (two to the power of three) is 2 * 2 * 2, which is 8.</li>
+</ul>
+
+<^1>If there is no operand on the left of + or -, then + or - becomes a sign. Examples: +3 or -2.
 
 ```
 1 > 1 + +"2" // +"2" gives a sign to "2", converting it to a number
