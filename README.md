@@ -8,14 +8,17 @@
 </ul>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
-## Data Types
-### 6 primitive types
-	• boolean (true or false)
-	• number (including integers like 1, -2, and floating point numbers like 1.1, 2e-3)
-	• string ( '' or "", 'ES6 in Practice' or "ES6 in Practice" )
-	• null type (denoted by null)
-	• undefined (denoted by undefined)
-	• Symbol (don’t worry about them yet)
+<h2 id="#data-types">Data Types</h2>
+<h3>6 primitive types</h3>
+
+<ol type="I">
+  <li>boolean (true or false)</li>
+  <li>number (including integers like 1, -2, and floating point numbers like 1.1, 2e-3)</li>
+  <li>string ( '' or "", 'ES6 in Practice' or "ES6 in Practice" )</li>
+  <li>null type (denoted by null)</li>
+  <li>	• undefined (denoted by undefined)</li>
+  <li>Symbol (don’t worry about them yet)</li>
+</ol>
 
 ### Some important operators are:
 	• + stands for addition. Example: 2 + 3 is 5.
