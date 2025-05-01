@@ -29,8 +29,8 @@
   <li><b><mark>/ (divisor)</mark></b> stands for division. Example: 3 / 2 is 1.5.</li>
   <li><b><mark>% (percent)</mark></b> stands for the modulus operation, which is the 
     remainder of a number divided by another
-	number using the rules of integer division. Example: 5 % 2 is 1, because 5 divided by 2 is 2,
-	and the remainder is 1. In other words, the mod 2 remainder of 5 is 1.</li>
+    number using the rules of integer division. Example: 5 % 2 is 1, because 5 divided by 2 is 2,
+    and the remainder is 1. In other words, the mod 2 remainder of 5 is 1.</li>
   <li><b><mark>** (double asterisk)</mark></b> is the power operator. Example: 2 ** 3 
     (two to the power of three) is 2 * 2 * 2, which is 8.</li>
 </ul>
@@ -133,10 +133,12 @@ becomes false, while <mark>!false</mark> becomes true.</p>
 <p>The <mark>!operator</mark> not only negates a value, but also converts it to a boolean. 
 For instance, the negation of a string can be described as follows:</p>
 
-	• the <mark>empty string ("")</mark> is evaluated as false by default in a boolean expression. Negating this
-	value yields true.
-	• An arbitrary at least one character long string is evaluated as true in a boolean expression.
-	Negating this value yields false.
+<ul>
+  <li>the <mark>empty string ("")</mark> is evaluated as false by default in a boolean 
+    expression. Negating this value yields true.</li>
+  <li>An arbitrary at least one character long string is evaluated as true in a boolean 
+    expression. Negating this value yields false.</li>
+</ul>
 
 ```
 1 > !""
@@ -182,14 +184,14 @@ Furthermore, null and undefined are neither true, nor false:
 ```
 
 However,
-	• Boolean( null ) and Boolean( undefined ) are both false
-	• !null and !undefined are both true
-	• !!null and !!undefined are both false
+    • Boolean( null ) and Boolean( undefined ) are both false
+    • !null and !undefined are both true
+    • !!null and !!undefined are both false
 
 
 Similarly to the Boolean function, double negation also converts an arbitrary value into boolean:
-	• if v is truthy, then !v is false, and !!v is true
-	• if w is falsy, then !w is true, and !!w is false
+    • if v is truthy, then !v is false, and !!v is true
+    • if w is falsy, then !w is true, and !!w is false
 
 Examples:
 
@@ -240,10 +242,10 @@ The = symbol is not used for comparison. It is used for assigning a value to a v
 For values a and b, a == b is true if and only if both a and b can be converted to the same value via
 type casting rules. This includes:
 
-	• null == undefined is true
-	• If an operand is a string and the other operand is a number, the string is converted to a number
-	• If an operand is a number and the other operand is a boolean, the boolean is converted to a
-	number as follows: true becomes 1, and false becomes 0.
+    • null == undefined is true
+    • If an operand is a string and the other operand is a number, the string is converted to a number
+    • If an operand is a number and the other operand is a boolean, the boolean is converted to a
+    number as follows: true becomes 1, and false becomes 0.
 
 Don’t worry about the exact definition, you will get used to it.
 
@@ -336,12 +338,12 @@ In JavaScript, there are six primitive types:
 
 <!-- page 19 -->
 
-	• boolean (true or false)
-	• number (including integers like 1, -2, and floating point numbers like 1.1, 2e-3)
-	• string ( '' or "", 'ES6 in Practice' or "ES6 in Practice" )
-	• null type (denoted by null)
-	• undefined (denoted by undefined)
-	• Symbol (don’t worry about them yet)
+    • boolean (true or false)
+    • number (including integers like 1, -2, and floating point numbers like 1.1, 2e-3)
+    • string ( '' or "", 'ES6 in Practice' or "ES6 in Practice" )
+    • null type (denoted by null)
+    • undefined (denoted by undefined)
+    • Symbol (don’t worry about them yet)
 
 Floating point numbers typically contain a decimal separator character, most often a dot. The
 precision of floating point numbers is limited, because there are a limited number of bits available.
@@ -357,16 +359,16 @@ two operands: 2 and 3.
 
 Some important operators are:
 
-	• + stands for addition. Example: 2 + 3 is 5.
-	• - stands for subtraction. Example: 2 - 3 is -1.
-	• If there is no operand on the left of + or -, then + or - becomes a sign. Examples: +3 or -2.
-	• * stands for multiplication. Example: 3 * 2 is 6.
-	• / stands for division. Example: 3 / 2 is 1.5.
-	• % stands for the modulus operation, which is the remainder of a number divided by another
-	number using the rules of integer division. Example: 5 % 2 is 1, because 5 divided by 2 is 2,
-	and the remainder is 1. In other words, the mod 2 remainder of 5 is 1.
-	• ** is the power operator. Example: 2 ** 3 (two to the power of three) is 2 * 2 * 2, which is
-	8.
+    • + stands for addition. Example: 2 + 3 is 5.
+    • - stands for subtraction. Example: 2 - 3 is -1.
+    • If there is no operand on the left of + or -, then + or - becomes a sign. Examples: +3 or -2.
+    • * stands for multiplication. Example: 3 * 2 is 6.
+    • / stands for division. Example: 3 / 2 is 1.5.
+    • % stands for the modulus operation, which is the remainder of a number divided by another
+    number using the rules of integer division. Example: 5 % 2 is 1, because 5 divided by 2 is 2,
+    and the remainder is 1. In other words, the mod 2 remainder of 5 is 1.
+    • ** is the power operator. Example: 2 ** 3 (two to the power of three) is 2 * 2 * 2, which is
+    8.
 
 At the bottom of the console in CodePen²², there is a line with a > sign. This is where you can enter
 JavaScript expressions. Let’s try some. Enter the expression you see after the >
@@ -407,15 +409,15 @@ means that each closing parenthesis should belong to a preceding opening parenth
 Similarly to mathematics, different operators have different priority (also referred to as precedence).
 When an operation has to be performed before another operation, we say that this operator:
 
-	• has higher priority,
-	• binds stronger.
+    • has higher priority,
+    • binds stronger.
 
 Most operators have either one or two operands. This means the operator transforms either one or
 two values to a new value. Examples:
 
-	• The operands of 5 + 2 are 5 and 2. The + operator transforms these operands to 7.
-	• The operand of -(2) is (2). I put parentheses around the 2 to emphasize that - is an operator
-	and not a symbol to describe an integer.
+    • The operands of 5 + 2 are 5 and 2. The + operator transforms these operands to 7.
+    • The operand of -(2) is (2). I put parentheses around the 2 to emphasize that - is an operator
+    and not a symbol to describe an integer.
 
 Operators bind their operands. We have already seen that some operators bind stronger than others.
 For instance, multiplication binds stronger than addition:
@@ -434,10 +436,10 @@ We have also seen that the priority of operators can be overridden using parenth
 
 The basic arithmetic operations (+, -, *, /, **) and the two signs (+, -) have the following priority:
 
-	1. Signs: + or - can stand in front of a number. This sign is evaluated first.
-	2. Power: ** binds the strongest out of the operators with two operands.
-	3. Multiplication and division: * and /
-	4. Finally, addition and subtraction: + and -
+    1. Signs: + or - can stand in front of a number. This sign is evaluated first.
+    2. Power: ** binds the strongest out of the operators with two operands.
+    3. Multiplication and division: * and /
+    4. Finally, addition and subtraction: + and -
 
 If you use more complex operations in JavaScript and you are not sure about their priority, use
 parentheses. Relying too much on the evaluation priority of operations reduces the readability of
@@ -561,14 +563,14 @@ and the special character(s) together are called an escape sequence. Escape sequ
 special characters.
 
 Examples for escape sequences:
-	• \' and \": single or double quote characters. In JavaScript, escaped quotes do not start or
-	terminate a string.
-	• \n: newline character. We can put a line break in the string, making the character after \n
-	appear on the next line.
-	• \\: as the backslash character creates an escape sequence, it is a special character itself and
-	has to be escaped. The first backslash tells the JavaScript interpreter that a special character is
-	coming. The second backslash says that this character is the backslash. This escape sequence
-	is important to keep in mind when describing Windows file paths in JavaScript or node.js:
+    • \' and \": single or double quote characters. In JavaScript, escaped quotes do not start or
+    terminate a string.
+    • \n: newline character. We can put a line break in the string, making the character after \n
+    appear on the next line.
+    • \\: as the backslash character creates an escape sequence, it is a special character itself and
+    has to be escaped. The first backslash tells the JavaScript interpreter that a special character is
+    coming. The second backslash says that this character is the backslash. This escape sequence
+    is important to keep in mind when describing Windows file paths in JavaScript or node.js:
 
 ```
 1 > console.log( `c:\\js\\hello.js` )
@@ -724,10 +726,10 @@ An arbitrary value can be converted to boolean using the Boolean function:
 The !operator not only negates a value, but also converts it to a boolean. For instance, the negation
 of a string can be described as follows:
 
-	• the empty string ("") is evaluated as false by default in a boolean expression. Negating this
-	value yields true.
-	• An arbitrary at least one character long string is evaluated as true in a boolean expression.
-	Negating this value yields false.
+    • the empty string ("") is evaluated as false by default in a boolean expression. Negating this
+    value yields true.
+    • An arbitrary at least one character long string is evaluated as true in a boolean expression.
+    Negating this value yields false.
 
 ```
 1 > !""
@@ -763,13 +765,13 @@ Furthermore, null and undefined are neither true, nor false:
 ```
 
 However,
-	• Boolean( null ) and Boolean( undefined ) are both false
-	• !null and !undefined are both true
-	• !!null and !!undefined are both false
+    • Boolean( null ) and Boolean( undefined ) are both false
+    • !null and !undefined are both true
+    • !!null and !!undefined are both false
 
 Similarly to the Boolean function, double negation also converts an arbitrary value into boolean:
-	• if v is truthy, then !v is false, and !!v is true
-	• if w is falsy, then !w is true, and !!w is false
+    • if v is truthy, then !v is false, and !!v is true
+    • if w is falsy, then !w is true, and !!w is false
 
 Examples:
 
@@ -822,10 +824,10 @@ The = symbol is not used for comparison. It is used for assigning a value to a v
 For values a and b, a == b is true if and only if both a and b can be converted to the same value via
 type casting rules. This includes:
 
-	• null == undefined is true
-	• If an operand is a string and the other operand is a number, the string is converted to a number
-	• If an operand is a number and the other operand is a boolean, the boolean is converted to a
-	number as follows: true becomes 1, and false becomes 0.
+    • null == undefined is true
+    • If an operand is a string and the other operand is a number, the string is converted to a number
+    • If an operand is a number and the other operand is a boolean, the boolean is converted to a
+    number as follows: true becomes 1, and false becomes 0.
 
 Don’t worry about the exact definition, you will get used to it.
 
@@ -867,8 +869,8 @@ The negation of === is !==.
 <!-- page 34 -->
 So far, all operators have been unary or binary meaning that they bind one or two values:
 
-	• the expression 5 + 2 has the operands 5 and 2
-	• the expression +'2' has the operand '2'
+    • the expression 5 + 2 has the operands 5 and 2
+    • the expression +'2' has the operand '2'
 
 Recall that operators bind their operands. Some operators are said to bind stronger than others. For
 instance, multiplication binds stronger than addition:
@@ -887,8 +889,8 @@ There is one ternary operator in JavaScript.
 
 The value of a ? b : c is:
 
-	• b if a is truthy
-	• c if a is falsy
+    • b if a is truthy
+    • c if a is falsy
 
 It is important to note the difference between 2 == true and !!2.
 
@@ -1030,9 +1032,9 @@ even if you have not initialized it. Its value becomes undefined.
 12 );
 ```
 
-	• The variable declaredAndDefined is declared on the same line where it is defined
-	• The variable declaredButOnlyLaterDefined is only defined later in another line
-	• The variable declaredButNotDefined is not defined at all, therefore, its value becomes undefined
+    • The variable declaredAndDefined is declared on the same line where it is defined
+    • The variable declaredButOnlyLaterDefined is only defined later in another line
+    • The variable declaredButNotDefined is not defined at all, therefore, its value becomes undefined
 
 Let’s see what happens if we move the line declaredButNotDefined below the console.log statement.
 
@@ -1098,11 +1100,11 @@ they are declared. If we forget this necessary step, we get an error message:
 The scope of a variable shows where the variable is visible and where it is not.
 In JavaScript, there are many different scopes available:
 
-	1. Global scope
-	2. Block scope (let, const)
-	3. Function scope (var)
-	4. Lexical scope (see later)
-	5. Module scope (we will not deal with this scope here)
+    1. Global scope
+    2. Block scope (let, const)
+    3. Function scope (var)
+    4. Lexical scope (see later)
+    5. Module scope (we will not deal with this scope here)
 
 In most programming languages, the first two scopes are available. Function scope is a unique
 feature of JavaScript. Since the 2015 version of JavaScript, ES6 (or ES2015), function scope is losing
@@ -1180,13 +1182,13 @@ use let, const, or a var (see later) keyword to create these variables, or you j
 
 In case of an assignment, the following happens:
 
-	• The program checks if there is a variable declared locally in the same block (let, const) or
-	function (var).
-	• if not, the program checks blocks and functions encapsulating the block or function, where our
-	variable was declared from inside - out. This is the process of accessing the lexical scope, and
-	we will deal with this later in depth.
-	• If there are no variables defined in the lexical scope, the global scope is accessed, a global
-	variable is created, and its value is set to the value of the assignment.
+    • The program checks if there is a variable declared locally in the same block (let, const) or
+    function (var).
+    • if not, the program checks blocks and functions encapsulating the block or function, where our
+    variable was declared from inside - out. This is the process of accessing the lexical scope, and
+    we will deal with this later in depth.
+    • If there are no variables defined in the lexical scope, the global scope is accessed, a global
+    variable is created, and its value is set to the value of the assignment.
 
 <!-- page 42 -->
 In the following example, we will only use blocks for simplicity, as we have not learned how function
