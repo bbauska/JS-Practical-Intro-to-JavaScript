@@ -11,7 +11,7 @@
 <h2 id="#data-types">Data Types</h2>
 <h3>6 primitive types</h3>
 
-<ol type="I">
+<ol type="i">
   <li>boolean (true or false)</li>
   <li>number (including integers like 1, -2, and floating point numbers like 1.1, 2e-3)</li>
   <li>string ( '' or "", 'ES6 in Practice' or "ES6 in Practice" )</li>
