@@ -13,7 +13,7 @@
 <h3>6 primitive types</h3>
 
 <ol type="i">
-  <li><b><mark>boolean</mark></b>[^1] (true or false)</li>
+  <li><b><mark>boolean</mark></b> (true or false)</li>
   <li><b><mark>number</mark></b> (including integers like 1, -2, and floating point numbers like 1.1, 2e-3)</li>
   <li><b><mark>string</mark></b> ( '' or "", 'ES6 in Practice' or "ES6 in Practice" )</li>
   <li><b><mark>null type</mark></b> (denoted by null)</li>
@@ -23,17 +23,19 @@
 
 <h3>Some important operators are:</h3>
 <ul>
-  <li><b><mark>+ (plus)</mark></b>[^1] stands for addition. Example: 2 + 3 is 5.</li>
-  <li><b><mark>- (minus)</mark></b>[^1] stands for subtraction. Example: 2 - 3 is -1.</li>
+  <li><b><mark>+ (plus)</mark></b> stands for addition. Example: 2 + 3 is 5.</li>
+  <li><b><mark>- (minus)</mark></b> stands for subtraction. Example: 2 - 3 is -1.</li>
   <li><b><mark>* (asterisk)</mark></b> stands for multiplication. Example: 3 * 2 is 6.</li>
   <li><b><mark>/ (divisor)</mark></b> stands for division. Example: 3 / 2 is 1.5.</li>
-  <li><b><mark>% (percent)</mark></b> stands for the modulus operation, which is the remainder of a number divided by another
+  <li><b><mark>% (percent)</mark></b> stands for the modulus operation, which is the 
+    remainder of a number divided by another
 	number using the rules of integer division. Example: 5 % 2 is 1, because 5 divided by 2 is 2,
 	and the remainder is 1. In other words, the mod 2 remainder of 5 is 1.</li>
-  <li><b><mark>**</mark></b> is the power operator. Example: 2 ** 3 (two to the power of three) is 2 * 2 * 2, which is 8.</li>
+  <li><b><mark>** (double asterisk)</mark></b> is the power operator. Example: 2 ** 3 
+    (two to the power of three) is 2 * 2 * 2, which is 8.</li>
 </ul>
 
-<^1>If there is no operand on the left of + or -, then + or - becomes a sign. Examples: +3 or -2.
+<p><b>Note:</b> If there is no operand on the left of + or -, then + or - becomes a sign. Examples: +3 or -2.</p>
 
 ```
 1 > 1 + +"2" // +"2" gives a sign to "2", converting it to a number
@@ -49,13 +51,13 @@
 11 3
 ```
 
-All conversions work. The first relies on giving a sign to a numeric string which converts it to a
+<p>All conversions work. The first relies on giving a sign to a numeric string which converts it to a
 number. Then 1+2 becomes 3. The second type cast is more explicit: you use Number to wrap a string
-and convert it to a number.
+and convert it to a number.</p>
 
-I recommend using the third option: Number.parseInt with a radix. parseInt converts a string into
-a number. The second argument of parseInt is optional: it describes the base in which we represent
-the number. Most of the time, we use base 10 values.
+<p>I recommend using the third option: <mark>Number.parseInt</mark> with a radix. <mark>parseInt</mark> 
+converts a string into a number. The second argument of parseInt is optional: it describes 
+the base in which we represent the number. Most of the time, we use base 10 values.</p>
 
 ```
 1 > Number.parseInt("ES6 in Practice")
@@ -71,26 +73,26 @@ the number. Most of the time, we use base 10 values.
 11 10
 ```
 
-Strings that do not start with a number are often NaN. "10" in base 2 is 2. The character "a" is not
-interpreted in base 10, its value is NaN. The same "a" character in base 16 is 10.
+<p>Strings that do not start with a number are often <mark>NaN</mark>. "10" in base 2 is 2. The character "a" is not
+interpreted in base 10, its value is <mark>NaN</mark>. The same "a" character in base 16 is 10.</p>
 
-Hexadecimal numbers are base 16 numbers. Hexa means 6, and decimal means 10. Ten plus six
+<p>Hexadecimal numbers are base 16 numbers. Hexa means 6, and decimal means 10. Ten plus six
 equals sixteen, hence the hexadecimal name. The digits of hexadecimal numbers are 0123456789abcdef.
-The last six digits can also be in upper case yielding ABCDEF.
+The last six digits can also be in upper case yielding ABCDEF.</p>
 
-Number.parseInt recognizes the starting characters of a string as integer numbers, and throws away
-the rest:
+<p><mark>Number.parseInt</mark> recognizes the starting characters of a string as integer numbers, and throws away
+the rest:</p>
 
 ```
 1 Number.parseInt( "1234.567 89" )
 2 1234
 ```
 
-The dot is not a character present in integer numbers, so everything after 1234 is thrown away by
-Number.parseInt.
+<p>The <mark>dot</mark> is not a character present in integer numbers, so everything after 
+1234 is thrown away by <mark>Number.parseInt</mark>.</p>
 
-You can also use Number.parseFloat to parse floating point. It parses the floating point number until
-the terminating space:
+<p>You can also use <mark>Number.parseFloat</mark> to parse floating point. It parses the 
+floating point number until the terminating space:</p>
 
 ```
 1 Number.parseFloat( "1234.567 89" )
@@ -99,9 +101,10 @@ the terminating space:
 
 <!-- page 29 -->
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-## The boolean type
-Let’s see some booleans values. Booleans are either true or false.
-The ! operator symbolizes negation. !true becomes false, while !false becomes true.
+<h2 id="#boolean">The boolean type</h2>
+<p>Let’s see some booleans values. Booleans are either true or false.</p>
+<p>The <mark>! (exclamation)</mark> operator symbolizes negation. <mark>!true</mark> 
+becomes false, while <mark>!false</mark> becomes true.</p>
 
 ```
 1 > !true
@@ -111,7 +114,7 @@ The ! operator symbolizes negation. !true becomes false, while !false becomes tr
 5 true
 ```
 
-An arbitrary value can be converted to boolean using the Boolean function:
+<p>An arbitrary value can be converted to boolean using the Boolean function:</p>
 
 ```
 1 > Boolean(0)
@@ -127,10 +130,10 @@ An arbitrary value can be converted to boolean using the Boolean function:
 11 false
 ```
 
-The !operator not only negates a value, but also converts it to a boolean. For instance, the negation
-of a string can be described as follows:
+<p>The <mark>!operator</mark> not only negates a value, but also converts it to a boolean. 
+For instance, the negation of a string can be described as follows:</p>
 
-	• the empty string ("") is evaluated as false by default in a boolean expression. Negating this
+	• the <mark>empty string ("")</mark> is evaluated as false by default in a boolean expression. Negating this
 	value yields true.
 	• An arbitrary at least one character long string is evaluated as true in a boolean expression.
 	Negating this value yields false.
