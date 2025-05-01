@@ -1,10 +1,11 @@
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-# JavaScript - Practical Intro to Modern JS
+<h1 id="#js-heading">JavaScript - Practical Intro to Modern JS</h1>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-## Comments
-	• Everything between /* and */ is ignored by the interpreter.
-	• Everything after // on the same line is ignored by the interpreter.
-
+<h2 id="#comments">Comments</h2>
+<ul>
+  <li>Everything between /* and */ is ignored by the interpreter.</li>
+  <li>Everything after // on the same line is ignored by the interpreter.</li>
+</ul>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 ## Data Types
 ### 6 primitive types
