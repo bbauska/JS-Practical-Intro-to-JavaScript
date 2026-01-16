@@ -414,7 +414,7 @@ For instance, multiplication binds stronger than addition:
 <!-- page 21 -->
 
 ```
-1 5 * 2 + 3 ----> 10 + 3 ----> 13
+5 * 2 + 3 ----> 10 + 3 ----> 13
 ```
 
 We have also seen that the priority of operators can be overridden using parentheses:
@@ -455,11 +455,11 @@ Let’s see some more surprising floating point operations.
 <!-- page 23 -->
 
 ```
-1 > 0.1 + 0.2
-2 0.30000000000000004
-3
-4 > Number( 0.1 + 0.2 ).toFixed( 1 );
-5 0.3
+0.1 + 0.2
+0.30000000000000004
+
+Number( 0.1 + 0.2 ).toFixed( 1 );
+0.3
 ```
 
 In the above example, the precision of the result is fixed to one decimal point.
@@ -468,11 +468,11 @@ The division 0 / 0 or using mismatching types creates a special number called no
 Ironically, we will soon see that the type of the NaN value is number.
 
 ```
-1 > 0 / 0
-2 NaN
-3
-4 > 'ES6 in Practice' * 2
-5 NaN
+0 / 0
+NaN
+
+'ES6 in Practice' * 2
+NaN
 ```
 
 The latter is interesting to Python users, because in Python, the result would have been 'ES6 in
@@ -483,20 +483,20 @@ There is another interesting numeric value: Infinity.
 <!-- page 24 -->
 
 ```
-1 > 1 / 0
-2 Infinity
-3
-4 > Infinity * Infinity
-5 Infinity
-6
-7 > -1 / 0
-8 -Infinity
-9
-10 > 1e308
-11 1e+308
-12
-13 > 1e309
-14 Infinity
+1 / 0
+Infinity
+
+Infinity * Infinity
+Infinity
+
+-1 / 0
+-Infinity
+
+1e308
+1e+308
+
+1e309
+Infinity
 ```
 
 JavaScript registers very large numbers as infinity. For instance, ten to the power of 309 is represented
@@ -505,8 +505,8 @@ as infinity. Division by zero also yields infinity.
 Let’s see some strings.
 
 ```
-1 > 'ES6 in ' + 'Practice'
-2 "ES6 in Practice"
+'ES6 in ' + 'Practice'
+"ES6 in Practice"
 ```
 
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -528,14 +528,14 @@ string. In JavaScript, there are multiple solutions:
 <!-- page 25 -->
 
 ```
-1 // Solution 1:
-2 console.log( '--- "This is a quote" ---' );
-3
-4 // Solution 2:
-5 console.log( "--- 'This is a quote' ---" );
-6
-7 // Solution 3:
-8 console.log( "--- \"This is a quote\" ---" );
+// Solution 1:
+console.log( '--- "This is a quote" ---' );
+
+// Solution 2:
+console.log( "--- 'This is a quote' ---" );
+
+// Solution 3:
+console.log( "--- \"This is a quote\" ---" );
 ```
 
 You can use any number of double quotes inside single quotes, and any number of single quotes
@@ -562,22 +562,22 @@ Examples for escape sequences:
     is important to keep in mind when describing Windows file paths in JavaScript or node.js:
 
 ```
-1 > console.log( `c:\\js\\hello.js` )
-2 "c:\js\hello.js"
+console.log( `c:\\js\\hello.js` )
+"c:\js\hello.js"
 ```
 
 <!-- page 26 -->
 
 ```
-1 > console.log( `
-2   <p>
-3     paragraph
-4   </p>
-5   <ul>
-6     <li>first list item</li>
-7     <li>second list item</li>
-8   </ul>
-9 ` );
+console.log( `
+<p>
+  paragraph
+</p>
+  <ul>
+    <li>first list item</li>
+    <li>second list item</li>
+  </ul>
+);
 ```
 
 The above expression prints the text in-between backticks, including the newline characters. The
@@ -598,11 +598,11 @@ This is called automatic type casting:
 <!-- page 27 -->
 
 ```
-1 > 1 + '2'
-2 "12"
-3
-4 > '1' + 2
-5 "12"
+1 + '2'
+"12"
+
+'1' + 2
+"12"
 ```
 
 Rules may become confusing, so don’t abuse automatic type casting. Most software developers do
@@ -616,17 +616,17 @@ is specified in the code.
 Examples:
 
 ```
-1 > 1 + +"2" // +"2" gives a sign to "2", converting it to a number
-2 3
+1 + +"2" // +"2" gives a sign to "2", converting it to a number
 3
-4 > 1 + Number("2")
-5 3
-6
-7 > 1 + Number.parseInt( "2", 10 )
-8 3
-9
-10 > 1 + Number.parseInt( "2" )
-11 3
+
+1 + Number("2")
+3
+
+1 + Number.parseInt( "2", 10 )
+3
+
+1 + Number.parseInt( "2" )
+3
 ```
 
 All conversions work. The first relies on giving a sign to a numeric string which converts it to a
@@ -641,17 +641,17 @@ Let’s see some more Number.parseInt values:
 <!-- page 28 -->
 
 ```
-1 > Number.parseInt("ES6 in Practice")
-2 NaN
-3
-4 > Number.parseInt( "10", 2 )
-5 2
-6
-7 > Number.parseInt( "a" )
-8 NaN
-9
-10 > Number.parseInt( "a", 16 )
-11 10
+Number.parseInt("ES6 in Practice")
+NaN
+
+Number.parseInt( "10", 2 )
+2
+
+Number.parseInt( "a" )
+NaN
+
+Number.parseInt( "a", 16 )
+10
 ```
 
 Strings that do not start with a number are often NaN. "10" in base 2 is 2. The character "a" is not
@@ -665,8 +665,8 @@ Number.parseInt recognizes the starting characters of a string as integer number
 the rest:
 
 ```
-1 Number.parseInt( "1234.567 89" )
-2 1234
+Number.parseInt( "1234.567 89" )
+1234
 ```
 
 The dot is not a character present in integer numbers, so everything after 1234 is thrown away by
@@ -675,8 +675,8 @@ You can also use Number.parseFloat to parse floating point. It parses the floati
 the terminating space:
 
 ```
-1 Number.parseFloat( "1234.567 89" )
-2 1234.567
+Number.parseFloat( "1234.567 89" )
+1234.567
 ```
 
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -688,27 +688,27 @@ Let’s see some booleans values. Booleans are either true or false.
 The ! operator symbolizes negation. !true becomes false, while !false becomes true.
 
 ```
-1 > !true
-2 false
-3
-4 > !false
-5 true
+!true
+false
+
+!false
+true
 ```
 
 An arbitrary value can be converted to boolean using the Boolean function:
 
 ```
-1 > Boolean(0)
-2 false
-3
-4 > Boolean(1)
-5 true
-6
-7 > Boolean(2)
-8 true
-9
-10 > Boolean(null)
-11 false
+Boolean(0)
+false
+
+Boolean(1)
+true
+
+Boolean(2)
+true
+
+Boolean(null)
+false
 ```
 
 <!-- page 30 -->
@@ -721,11 +721,11 @@ of a string can be described as follows:
     Negating this value yields false.
 
 ```
-1 > !""
-2 true
-3
-4 > !" "
-5 false
+!""
+true
+
+!" "
+false
 ```
 
 In JavaScript, we differentiate between truthy and falsy values. These values are not necessarily
@@ -740,17 +740,17 @@ Furthermore, null and undefined are neither true, nor false:
 <!-- page 31 -->
 
 ```
-1 > null == true
-2 false
-3
-4 > null == false
-5 false
-6
-7 > undefined == true
-8 false
-9
-10 > undefined == false
-11 false
+null == true
+false
+
+null == false
+false
+
+undefined == true
+false
+
+undefined == false
+false
 ```
 
 However,
@@ -765,29 +765,29 @@ Similarly to the Boolean function, double negation also converts an arbitrary va
 Examples:
 
 ```
-1 > !!""
-2 false
-3
-4 > !!"a"
-5 true
-6
-7 > !!0
-8 false
-9
-10 > !!1
-11 true
-12
-13 > !!NaN
-14 false
-15
-16 > !!Infinity
-17 true
-18 
-19 > !!null
-20 false
-21
-22 > !!undefined
-23 false
+!!""
+false
+
+!!"a"
+true
+
+!!0
+false
+
+!!1
+true
+
+!!NaN
+false
+
+!!Infinity
+true
+ 
+!!null
+false
+
+!!undefined
+false
 ```
 
 <!-- page 32 -->
@@ -798,14 +798,14 @@ We can compare two numbers with >, >=, ==, ===, <=, <. We will discuss the diffe
 and === soon. For the rest of the operators, the result of the comparison is a boolean.
 
 ```
-1 > 5 <= 5
-2 true
-3
-4 > 5 < 5
-5 false
-6 
-7 > !(5 < 5) // ! stands for negation. !true = false, !false = true.
-8 true
+5 <= 5
+true
+
+5 < 5
+false
+ 
+!(5 < 5) // ! stands for negation. !true = false, !false = true.
+true
 ```
 
 The = symbol is not used for comparison. It is used for assigning a value to a variable (see later).
@@ -825,20 +825,20 @@ For values a and b, a === b is true if and only if a == b and both a and b have 
 <!-- page 33 -->
 
 ```
-1 > 5 == '5' // '5' is converted to 5
-2 true
-3
-4 > 5 === '5' // types have to be the same
-5 false
-6
-7 > 0 == '' // '' is converted to 0
-8 true
-9
-10 > 0 === '' // types have to be the same
-11 false
-12
-13 > NaN == NaN // I know... just accept this as something odd and funny
-14 false
+5 == '5' // '5' is converted to 5
+true
+
+5 === '5' // types have to be the same
+false
+
+0 == '' // '' is converted to 0
+true
+
+0 === '' // types have to be the same
+false
+
+NaN == NaN // I know... just accept this as something odd and funny
+false
 ```
 
 The negation of == is !=. Read it as is not equal to. For instance, !(a == b) becomes a != b. It is
@@ -848,11 +848,11 @@ priority of the operators.
 The negation of === is !==.
 
 ```
-1 > 5 != '5'
-2 false
-3
-4 > 5 !== '5'
-5 true
+5 != '5'
+false
+
+5 !== '5'
+true
 ```
 
 <!-- page 34 -->
@@ -865,13 +865,13 @@ Recall that operators bind their operands. Some operators are said to bind stron
 instance, multiplication binds stronger than addition:
 
 ```
-1 5 * 2 + 2 ----> 10 + 2 ----> 12
+5 * 2 + 2 ----> 10 + 2 ----> 12
 ```
 
 Also recall that is possible to override the precedence of the operators with parentheses:
 
 ```
-1 5 * (2 + 2) ----> 5 * 4 ----> 20
+5 * (2 + 2) ----> 5 * 4 ----> 20
 ```
 
 There is one ternary operator in JavaScript.
@@ -884,17 +884,17 @@ The value of a ? b : c is:
 It is important to note the difference between 2 == true and !!2.
 
 ```
-1 > 2 == true // true is converted to 1
-2 false
-3
-4 > !!2 // 2 is a truthy value
-5 true
-6
-7 > 2 == true ? 'the condition is true' : 'the condition is false'
-8 "the condition is false"
-9
-10 > !!2 ? 'the condition is true' : 'the condition is false'
-11 "the condition is true"
+2 == true // true is converted to 1
+false
+
+!!2 // 2 is a truthy value
+true
+
+2 == true ? 'the condition is true' : 'the condition is false'
+"the condition is false"
+
+!!2 ? 'the condition is true' : 'the condition is false'
+"the condition is true"
 ```
 
 I have seen the nastiest bug in my life in a code, where a condition was in a format num == true.
@@ -919,17 +919,17 @@ lock, in a world, where each created key is different from all other keys previo
 stage, just accept that symbols exist. You don’t have to use them for anything yet.
 
 ```
-1 > null
-2 null
-3
-4 > undefined
-5 undefined
-6
-7 > void 0
-8 undefined
-9
-10 > Symbol('ES6 in Practice')
-11 [object Symbol] {}
+null
+null
+
+undefined
+undefined
+
+void 0
+undefined
+
+Symbol('ES6 in Practice')
+[object Symbol] {}
 ```
 
 The value undefined can also be created using the void prefix operator.
@@ -938,19 +938,19 @@ Symbols can have a string description. This string description does not have an 
 value of the symbol:
 
 ```
-1 > Symbol('a') == Symbol('a')
-2 false
+Symbol('a') == Symbol('a')
+false
 ```
 
 ```
-1 // A. Arithmetics
-2 console.log( 2*2+4 );  // 8
-3
-4 // B. Ternary operator
-5 console.log( 3 % 2 ? 'egy' : 'nulla' );  // egy
-6
-7 // C. Not a Number
-8 console.log( (0/0) == NaN );  // false
+// A. Arithmetics
+console.log( 2*2+4 );  // 8
+
+// B. Ternary operator
+console.log( 3 % 2 ? 'egy' : 'nulla' );  // egy
+
+// C. Not a Number
+console.log( (0/0) == NaN );  // false
 ```
 
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -959,8 +959,8 @@ value of the symbol:
 <!-- page 37 -->
 
 ```
-1 > console.log( 1, 2, 3 )
-2 1 2 3
+console.log( 1, 2, 3 )
+1 2 3
 ```
 
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -971,13 +971,13 @@ variable, which means to you that a drawer is created with a handle. Declaration
 creates a drawer, and hands the key of the drawer to us so that we can access its contents.
 
 ```
-1 let myDrawer;
+let myDrawer;
 ```
 
 You can put a value in your drawer:
 
 ```
-1 myDrawer = '$1.000';
+myDrawer = '$1.000';
 ```
 
 In order to access the value, you have to grab the handle of the drawer and open it. In this example,
@@ -987,8 +987,8 @@ thousand bucks, you have to open the drawer:
 <!-- page 38 -->
 
 ```
-1 > myDrawer
-2 '$1.000'
+myDrawer
+'$1.000'
 ```
 
 You can assign an initial value to your variable with the = sign. This is called assignment, because
@@ -999,7 +999,7 @@ The declaration and initialization steps can be combined in one step. Let’s cr
 where we both declare and initialize a variable:
 
 ```
-1 let mySecondDrawer = '$500';
+let mySecondDrawer = '$500';
 ```
 
 Initialization can occur either in the same statement where you declared the variable (see declaredAndDefined),
@@ -1007,18 +1007,18 @@ or after the declaration (see declaredButOnlyLaterDefined). You may access a dec
 even if you have not initialized it. Its value becomes undefined.
 
 ```
-1 let declaredAndDefined = 5;
-2
-3 let declaredButOnlyLaterDefined;
-4 declaredButOnlyLaterDefined = declaredAndDefined ** 2;
-5
-6 let declaredButNotDefined;
-7
-8 console.log(
-9   declaredAndDefined,
-10  declaredButOnlyLaterDefined,
-11  declaredButNotDefined
-12 );
+let declaredAndDefined = 5;
+
+let declaredButOnlyLaterDefined;
+declaredButOnlyLaterDefined = declaredAndDefined ** 2;
+
+let declaredButNotDefined;
+
+console.log(
+  declaredAndDefined,
+  declaredButOnlyLaterDefined,
+  declaredButNotDefined
+);
 ```
 
     • The variable declaredAndDefined is declared on the same line where it is defined
@@ -1030,20 +1030,20 @@ Let’s see what happens if we move the line declaredButNotDefined below the con
 <!-- page 39 -->
 
 ```
-1  let declaredAndDefined = 5;
-2
-3  let declaredButOnlyLaterDefined;
-4  declaredButOnlyLaterDefined = declaredAndDefined ** 2;
-5
-6  console.log(
-7    declaredAndDefined,
-8    declaredButOnlyLaterDefined,
-9    declaredButNotDefined
-10 );
-11 // The following error message is displayed:
-12 // ReferenceError: declaredButNotDefined is not defined
-13
-14 let declaredButNotDefined;
+let declaredAndDefined = 5;
+
+let declaredButOnlyLaterDefined;
+declaredButOnlyLaterDefined = declaredAndDefined ** 2;
+
+console.log(
+  declaredAndDefined,
+  declaredButOnlyLaterDefined,
+  declaredButNotDefined
+);
+// The following error message is displayed:
+// ReferenceError: declaredButNotDefined is not defined
+
+let declaredButNotDefined;
 ```
 
 If you execute the above code, a ReferenceError should be displayed while executing the console.log
@@ -1052,9 +1052,9 @@ box in the post office. However, the box you are asking for does not exist in th
 is only accessible once you create it using the statement let declaredButNotDefined.
 
 ```
-1 console.log( declaredButNotDefined ); // ReferenceError
-2
-3 let declaredButNotDefined;
+console.log( declaredButNotDefined ); // ReferenceError
+
+let declaredButNotDefined;
 ```
 
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -1063,14 +1063,14 @@ is only accessible once you create it using the statement let declaredButNotDefi
 Constants behave in a similar way as variables. Constants can be created using the const keyword:
 
 ```
-1 const PI = 3.14;
+const PI = 3.14;
 ```
 
 The value of a constant cannot be changed later:
 
 ```
-1 PI = 2;
-2 Uncaught TypeError: Assignment to constant variable.
+PI = 2;
+Uncaught TypeError: Assignment to constant variable.
 ```
 
 As the value of constants stay unchanged, they have to be initialized in the same statement where
@@ -1079,8 +1079,8 @@ they are declared. If we forget this necessary step, we get an error message:
 <!-- page 40 -->
 
 ```
-1 const c;
-2 Uncaught SyntaxError: Missing initializer in const declaration
+const c;
+Uncaught SyntaxError: Missing initializer in const declaration
 ```
 
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -1103,27 +1103,27 @@ Regarding block scope, blocks can be created anywhere in your code. Blocks are c
 ({ and }):
 
 ```
-1 {
-2   // This is a block
-3 }
+{
+// This is a block
+}
 ```
 
 Variables created using let and const are only visible inside the block where they are created:
 
 ```
-1 {
-2   let box = 5;
-3   console.log( box );
-4 }
+{
+  let box = 5;
+  console.log( box );
+}
 ```
 
 The above code displays the value of box.
 
 ```
-1 {
-2   let innerBox = 6;
-3 }
-4 console.log( innerBox );
+{
+  let innerBox = 6;
+}
+console.log( innerBox );
 ```
 
 In the above code segment, we get a ReferenceError as soon as we reach the console.log statement:
@@ -1131,7 +1131,7 @@ In the above code segment, we get a ReferenceError as soon as we reach the conso
 <!-- page 41 -->
 
 ```
-1 VM124:4 Uncaught ReferenceError: belsoDoboz is not defined
+VM124:4 Uncaught ReferenceError: belsoDoboz is not defined
 ```
 
 This is because the innerBox is not visible from outside the box.
@@ -1144,26 +1144,26 @@ have already used the global console variable to log messages. Besides console, 
 Chrome developer tools console to explore other global variables:
 
 ```
-1 > document.location.href
-2 "http://zsoltnagy.eu"
-3
-4 > document.location.host
-5 "zsoltnagy.eu"
-6
-7 > screen.width
-8 1920
-9
-10 > let globalVariable = true
-11 true
-12
-13 > globalVariable
-14 true
-15
-16 > secondGlobalVariable = true
-17 true
-18
-19 > secondGlobalVariable
-20 true
+document.location.href
+"http://zsoltnagy.eu"
+
+document.location.host
+"zsoltnagy.eu"
+
+screen.width
+1920
+
+let globalVariable = true
+true
+
+globalVariable
+ true
+
+secondGlobalVariable = true
+true
+
+secondGlobalVariable
+true
 ```
 
 As you can see, it is possible to create global variables in the global scope. It does not matter if you
@@ -1184,16 +1184,16 @@ In the following example, we will only use blocks for simplicity, as we have not
 scope works.
 
 ```
-1  // first file:
-2
-3  {
-4    let firstBox = 1;
-5    {
-6      firstBox = 2;
-7      secondBox = 3;
-8      console.log( firstBox, secondBox );
-9    }
-10 }
+// first file:
+
+{
+  let firstBox = 1;
+{
+  firstBox = 2;
+  secondBox = 3;
+  console.log( firstBox, secondBox );
+  }
+}
 ```
 
 If we execute the above code, the values 2 3 are printed to the console. The variable firstBox
@@ -1205,14 +1205,14 @@ Now let’s suppose the contents of the first file have been loaded, and we also
 code segment titled second file:
 
 ```
-1 // second file:
-2 
-3 {
-4   let firstBox = 4;
-5   {
-6     console.log( firstBox, secondBox );
-7   }
-8 }
+// second file:
+ 
+{
+  let firstBox = 4;
+  {
+    console.log( firstBox, secondBox );
+  }
+}
 ```
 
 Once we execute this code, the values 4 3 are printed. The variable firstBox is defined in the block
@@ -1220,23 +1220,23 @@ outside the block of the console.log. The variable secondBox is global, and it w
 loading firstFile. The secondBox variable is from now on shared across all files that we load.
 
 ```
-1 // third file:
-2 console.log( secondBox );
+// third file:
+console.log( secondBox );
 ```
 
 Executing this code also has access to the secondBox global variable.
 
 ```
-1 // fourth file:
-2 console.log( firstBox );
+// fourth file:
+console.log( firstBox );
 ```
 
 The result of loading the fourth file is a ReferenceError, because firstBox does not exist inside
 this scope: it only exists within the block it was defined in first file and second file.
 
 ```
-1 VM5519:1 Uncaught ReferenceError: firstBox is not defined
-2   at <anonymous>:1:14
+VM5519:1 Uncaught ReferenceError: firstBox is not defined
+at <anonymous>:1:14
 ```
 
 When writing software, often times we create and maintain hundreds of thousands of lines of code,
