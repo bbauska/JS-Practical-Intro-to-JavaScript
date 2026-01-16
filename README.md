@@ -38,17 +38,14 @@
 <p><b>Note:</b> If there is no operand on the left of + or -, then + or - becomes a sign. Examples: +3 or -2.</p>
 
 ```
-1 > 1 + +"2" // +"2" gives a sign to "2", converting it to a number
-2 3
+1 + +"2" // +"2" gives a sign to "2", converting it to a number
 3
-4 > 1 + Number("2")
-5 3
-6
-7 > 1 + Number.parseInt( "2", 10 )
-8 3
-9
-10 > 1 + Number.parseInt( "2" )
-11 3
+1 + Number("2")
+3
+1 + Number.parseInt( "2", 10 )
+3
+1 + Number.parseInt( "2" )
+3
 ```
 
 <p>All conversions work. The first relies on giving a sign to a numeric string which converts it to a
@@ -60,17 +57,14 @@ converts a string into a number. The second argument of parseInt is optional: it
 the base in which we represent the number. Most of the time, we use base 10 values.</p>
 
 ```
-1 > Number.parseInt("ES6 in Practice")
-2 NaN
-3
-4 > Number.parseInt( "10", 2 )
-5 2
-6
-7 > Number.parseInt( "a" )
-8 NaN
-9
-10 > Number.parseInt( "a", 16 )
-11 10
+Number.parseInt("ES6 in Practice")
+NaN
+Number.parseInt( "10", 2 )
+2
+Number.parseInt( "a" )
+NaN
+Number.parseInt( "a", 16 )
+10
 ```
 
 <p>Strings that do not start with a number are often <mark>NaN</mark>. "10" in base 2 is 2. The character "a" is not
@@ -84,8 +78,8 @@ The last six digits can also be in upper case yielding ABCDEF.</p>
 the rest:</p>
 
 ```
-1 Number.parseInt( "1234.567 89" )
-2 1234
+Number.parseInt( "1234.567 89" )
+1234
 ```
 
 <p>The <mark>dot</mark> is not a character present in integer numbers, so everything after 
@@ -95,8 +89,8 @@ the rest:</p>
 floating point number until the terminating space:</p>
 
 ```
-1 Number.parseFloat( "1234.567 89" )
-2 1234.567
+Number.parseFloat( "1234.567 89" )
+1234.567
 ```
 
 <!-- page 29 -->
@@ -107,27 +101,23 @@ floating point number until the terminating space:</p>
 becomes false, while <mark>!false</mark> becomes true.</p>
 
 ```
-1 > !true
-2 false
-3
-4 > !false
-5 true
+!true
+false
+!false
+true
 ```
 
 <p>An arbitrary value can be converted to boolean using the Boolean function:</p>
 
 ```
-1 > Boolean(0)
-2 false
-3
-4 > Boolean(1)
-5 true
-6
-7 > Boolean(2)
-8 true
-9
-10 > Boolean(null)
-11 false
+Boolean(0)
+false
+Boolean(1)
+true
+Boolean(2)
+true
+Boolean(null)
+false
 ```
 
 <p>The <mark>!operator</mark> not only negates a value, but also converts it to a boolean. 
@@ -141,11 +131,10 @@ For instance, the negation of a string can be described as follows:</p>
 </ul>
 
 ```
-1 > !""
-2 true
-3
-4 > !" "
-5 false
+!""
+true
+!" "
+false
 ```
 
 In JavaScript, we differentiate between truthy and falsy values. These values are not necessarily
@@ -162,25 +151,25 @@ instance, in the expression 2 == true, both sides of the comparison are converte
 As the value of Number(true) is 1, the 2 == 1 expression is evaluated to false:
 
 ```
-1 2 == true ---> 2 == Number(true) ---> 2 == 1 ---> false
-2
-3 2 == false ---> 2 == Number(false) ---> 2 == 0 ---> false
+2 == true ---> 2 == Number(true) ---> 2 == 1 ---> false
+
+2 == false ---> 2 == Number(false) ---> 2 == 0 ---> false
 ```
 
 Furthermore, null and undefined are neither true, nor false:
 
 ```
-1 > null == true
-2 false
-3
-4 > null == false
-5 false
-6
-7 > undefined == true
-8 false
-9
-10 > undefined == false
-11 false
+null == true
+false
+
+null == false
+false
+
+undefined == true
+false
+
+undefined == false
+false
 ```
 
 However,
@@ -196,29 +185,29 @@ Similarly to the Boolean function, double negation also converts an arbitrary va
 Examples:
 
 ```
-1 > !!""
-2 false
-3
-4 > !!"a"
-5 true
-6
-7 > !!0
-8 false
-9
-10 > !!1
-11 true
-12
-13 > !!NaN
-14 false
-15
-16 > !!Infinity
-17 true
-18
-19 > !!null
-20 false
-21
-22 > !!undefined
-23 false
+!!""
+false
+
+!!"a"
+true
+
+!!0
+false
+
+!!1
+true
+
+!!NaN
+false
+
+!!Infinity
+true
+
+!!null
+false
+
+!!undefined
+false
 ```
 
 Once you start writing complex software, use the Boolean function instead of double negation to
@@ -228,14 +217,14 @@ We can compare two numbers with >, >=, ==, ===, <=, <. We will discuss the diffe
 and === soon. For the rest of the operators, the result of the comparison is a boolean.
 
 ```
-1 > 5 <= 5
-2 true
-3
-4 > 5 < 5
-5 false
-6
-7 > !(5 < 5) // ! stands for negation. !true = false, !false = true.
-8 true
+5 <= 5
+true
+
+5 < 5
+false
+
+!(5 < 5) // ! stands for negation. !true = false, !false = true.
+true
 ```
 
 The = symbol is not used for comparison. It is used for assigning a value to a variable (see later).
@@ -252,20 +241,20 @@ Don’t worry about the exact definition, you will get used to it.
 For values a and b, a === b is true if and only if a == b and both a and b have the same types.
 
 ```
-1 > 5 == '5' // '5' is converted to 5
-2 true
-3
-4 > 5 === '5' // types have to be the same
-5 false
-6
-7 > 0 == '' // '' is converted to 0
-8 true
-9
-10 > 0 === '' // types have to be the same
-11 false
-12
-13 > NaN == NaN // I know... just accept this as something odd and funny
-14 false
+5 == '5' // '5' is converted to 5
+true
+
+5 === '5' // types have to be the same
+false
+
+0 == '' // '' is converted to 0
+true
+
+0 === '' // types have to be the same
+false
+
+NaN == NaN // I know... just accept this as something odd and funny
+false
 ```
 
 The negation of == is !=. Read it as is not equal to. For instance, !(a == b) becomes a != b. It is
@@ -274,19 +263,19 @@ priority of the operators.
 The negation of === is !==.
 
 ```
-1 > 5 != '5'
-2 false
-3
-4 > 5 !== '5'
-5 true
+5 != '5'
+false
+
+5 !== '5'
+true
 ```
 
 ```
-1 > 0.1 + 0.2
-2 0.30000000000000004
-3
-4 > 3.1e-3
-5 0.0031
+0.1 + 0.2
+0.30000000000000004
+
+3.1e-3
+0.0031
 ```
 
 Some more info on floating points. Due to the way how numbers are represented, 0.1 + 0.2 is not
@@ -298,8 +287,8 @@ describes the exact value of 0.0031. 3.1 * (10 ** -3) describes a composite expr
 to be calculated:
 
 ```
-1 > 3.1 * (10 ** -3)
-2 0.0031000000000000003
+3.1 * (10 ** -3)
+0.0031000000000000003
 ```
 
 Floating point arithmetics does not even make this expression exact.
@@ -377,17 +366,17 @@ sign. Then press enter. You can see the result appear on the next line.
 <!-- page 20 -->
 
 ```
-1 > 5
-2 5
-3
-4 > 5 + 2
-5 7
-6
-7 > 7 % 5
-8 2
-9
-10 > 5 ** 2
-11 25
+5
+5
+
+5 + 2
+7
+
+7 % 5
+2
+
+5 ** 2
+25
 ```
 
 Operations can be grouped together using parentheses. Parentheses override the priority of executing
@@ -396,11 +385,11 @@ means, 1 + 2 * 3 is the same as 1 + (2 * 3).
 Let’s see an example for using parentheses:
 
 ```
-1 > 5 * ( 1 + 2 * ( 3 + 4 ) )
-2 // 5 * ( 1 + 2 * 7 )
-3 // 5 * ( 1 + 14 )
-4 // 5 * 15
-5 75
+5 * ( 1 + 2 * ( 3 + 4 ) )
+// 5 * ( 1 + 2 * 7 )
+// 5 * ( 1 + 14 )
+// 5 * 15
+75
 ```
 
 Opposed to mathematics, we do not use brackets or braces to group operations. Parentheses can be
@@ -1283,7 +1272,7 @@ The trick is that in case of arrays, you have to imagine the post boxes with han
 1, 2, and so on. Typically, arrays have continuous keys.
 
 ```
-1 let days = [ 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' ];
+let days = [ 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' ];
 ```
 
 If you are looking for post box 3 among the days post office, you get Thursday, because Monday is
@@ -1294,17 +1283,5 @@ Arrays do not have to contain elements of the same type. We can place strings, n
 symbols, objects, and other arrays in the array:
 
 ```
-1 let storage = [ 1, 'Monday', null ];
+let storage = [ 1, 'Monday', null ];
 ```
-
-
-
-
-
-
-
-
-
-
-
-
